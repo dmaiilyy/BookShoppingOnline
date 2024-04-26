@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DAlaptrinhApp</string>
+    <string name="login_txt"><u> Login here </u></string>
+    <string name="register_txt"> <u> Register here </u></string>
+    <string name="intenttologin"><u>log in</u> </string>
+    <string name="intenttoshopping"><u>Go to shopping?</u> </string>
+</resources>

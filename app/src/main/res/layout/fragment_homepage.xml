@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.homepageFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp"
+                android:paddingTop="10dp"
+                android:background="@drawable/borderheader">
+
+                <LinearLayout
+                    android:id="@+id/loginlayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="You have not logged in yet! Want to "
+                        android:textColor="@color/ccc" />
+                    <TextView
+                        android:id="@+id/intentlogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="@string/intenttologin"
+                        android:textColor="@color/RED" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_light"
+                        android:text=" ?"
+                        android:textStyle="bold"
+                        android:textColor="@color/ccc" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Hello, buddy! "
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    app:layout_constraintEnd_toEndOf="@id/heading"
+                    app:layout_constraintHorizontal_bias="0.051"
+                    app:layout_constraintStart_toStartOf="@id/heading"
+                    app:layout_constraintTop_toTopOf="@id/heading" />
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="320dp"
+                    android:layout_height="92dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="What do you want to buy today?"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    app:layout_constraintEnd_toEndOf="@id/heading"
+                    app:layout_constraintStart_toStartOf="@id/heading"
+                    app:layout_constraintTop_toTopOf="@id/heading" />
+            </LinearLayout>
+
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:flipInterval="3000"
+                android:autoStart="true"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/advers" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/advers2" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/advers3" />
+            </ViewFlipper>
+
+            <LinearLayout
+                android:id="@+id/popular_product"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="23dp"
+                    android:textColor="@color/RED"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="New Books" />
+
+                <TextView
+                    android:id="@+id/viewallbook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/RED"
+                    android:textSize="18dp"
+                    android:layout_gravity="center"
+                    android:paddingHorizontal="10dp"
+                    android:text="See all >>" />
+            </LinearLayout>
+
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgrccv"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/homepagerccv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"/>
+            </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
