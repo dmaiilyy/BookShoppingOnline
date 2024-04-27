@@ -78,7 +78,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         //call api
         Retrofit retrofit = RetrofitManager.getInstance();
         myapi = retrofit.create(myAPI.class);
-        Call<ArrayList<orderdetailDto>> call = myapi.getOrderDetail(2, order_id);
+        Call<ArrayList<orderdetailDto>> call = myapi.getOrderDetail(user_id, order_id);
         call.enqueue(new Callback<ArrayList<orderdetailDto>>() {
             @Override
             public void onResponse(Call<ArrayList<orderdetailDto>> call, Response<ArrayList<orderdetailDto>> response) {
@@ -94,7 +94,6 @@ public class OrderDetailActivity extends AppCompatActivity {
                     Toast.makeText(OrderDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<ArrayList<orderdetailDto>> call, Throwable throwable) {
                 Toast.makeText(OrderDetailActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
@@ -110,7 +109,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                     ordermodel omodel = response.body();
                     orderid.setText("Order ID: " + omodel.getOrder_id());
                     username.setText("Name: " + omodel.getUser_name());
-                    email.setText("Name: " + omodel.getUser_email());
+                    email.setText("Email: " + omodel.getUser_email());
                     phonenumber.setText("Phone number: " + omodel.getUser_phone());
                     address.setText("Address: " + omodel.getUser_add());
                     createdate.setText("Created at: " + omodel.getCreatedate());
@@ -123,7 +122,6 @@ public class OrderDetailActivity extends AppCompatActivity {
                     Toast.makeText(OrderDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<ordermodel> call, Throwable throwable) {
                 Toast.makeText(OrderDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();

@@ -29,13 +29,17 @@ public class UserSettingActivity extends AppCompatActivity {
     private myAPI myapi;
     private ArrayList<usermodel> usermodels;
     private Button logoutbtn;
-
     private LinearLayout loggedLayout,intentoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_setting);
+
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.remove("user_id");
+//        editor.apply();
 
         backicon = findViewById(R.id.backicon);
         toOrderHistory = findViewById(R.id.toOrderHistory);
@@ -63,7 +67,6 @@ public class UserSettingActivity extends AppCompatActivity {
 
 //         lay ra thong tin user
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-
         int user_id = sharedPreferences.getInt("user_id", -1);
 
         Retrofit retrofit = RetrofitManager.getInstance();
@@ -109,7 +112,7 @@ public class UserSettingActivity extends AppCompatActivity {
             logoutbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //xoa user_id trong shared pref
+//                    //xoa user_id trong shared pref
                     SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.remove("user_id");

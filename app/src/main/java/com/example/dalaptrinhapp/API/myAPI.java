@@ -42,14 +42,13 @@ public interface myAPI {
             @Field("username") String username,
             @Field("email") String email,
             @Field("phone_number") String phonenumber,
-            @Field("password") String password,
-            @Field("confirm_password") String confirm_password
+            @Field("password") String password
     );
 
     @GET("getUser.php")
     Call<usermodel> getUserbyUserID(@Query("user_id") int user_id);
 
-    //tra ve cartmodel ?
+
     @GET("addtoCart.php")
     Call<apiresponse> addtoCart(@Query("user_id") int user_id, @Query("book_id") int book_id);
 
@@ -91,7 +90,6 @@ public interface myAPI {
 
     @GET("getOrderbyOrderID.php")
     Call<ordermodel> getOrderbyOrderID( @Query("order_id") int order_id);
-
 
     @GET("getOrderdetailbyorderID.php")
     Call<ArrayList<orderdetailDto>> getOrderDetail(@Query("user_id") int user_id, @Query("order_id") int order_id);

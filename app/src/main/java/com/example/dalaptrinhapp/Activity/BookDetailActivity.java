@@ -1,7 +1,6 @@
 package com.example.dalaptrinhapp.Activity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -67,6 +65,7 @@ public class BookDetailActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = BookDetailActivity.this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         int user_id = sharedPreferences.getInt("user_id", -1);
 
+        Log.d("user_id", String.valueOf(user_id));
         Retrofit retrofit = RetrofitManager.getInstance();
         myapi = retrofit.create(myAPI.class);
         int book_id = getIntent().getIntExtra("book_id", -1);
@@ -111,13 +110,7 @@ public class BookDetailActivity extends AppCompatActivity {
                             public void onResponse(Call<apiresponse> call, Response<apiresponse> response) {
                                 if (response.isSuccessful()) {
                                     apiresponse apiresponse = response.body();
-                                    if (apiresponse.getStatus().equals("success")) {
-                                        Toast.makeText(BookDetailActivity.this, apiresponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        // add false
-                                        bookdesc.setText(apiresponse.getMessage());
-//                                        Toast.makeText(BookDetailActivity.this, apiresponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
+                                    Toast.makeText(BookDetailActivity.this, apiresponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(BookDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                                 }
@@ -126,7 +119,6 @@ public class BookDetailActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<apiresponse> call, Throwable throwable) {
                                 bookdesc.setText(throwable.getMessage());
-
 //                                Toast.makeText(BookDetailActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });

@@ -52,7 +52,6 @@ public class myOrderItemAdapter extends RecyclerView.Adapter<myOrderItemAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title, author, price, quantity;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
@@ -60,7 +59,6 @@ public class myOrderItemAdapter extends RecyclerView.Adapter<myOrderItemAdapter.
             author = itemView.findViewById(R.id.author);
             price = itemView.findViewById(R.id.price);
             quantity = itemView.findViewById(R.id.quantity);
-
         }
     }
 

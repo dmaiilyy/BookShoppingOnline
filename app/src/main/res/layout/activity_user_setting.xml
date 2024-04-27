@@ -37,6 +37,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/poppins_regular"
                 android:text="User"
+                android:textColor="@color/DARKlg"
                 android:textSize="25dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/homeicon"
