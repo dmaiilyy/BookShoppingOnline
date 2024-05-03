@@ -218,11 +218,17 @@ public class CheckoutActivity extends AppCompatActivity {
                                     finish();
                                 }
                             });
+                            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            });
+
                             AlertDialog dialog = builder.create();
                             dialog.show();
 
 
-                        }else {
+                        } else {
                             Toast.makeText(CheckoutActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                         }
                     }

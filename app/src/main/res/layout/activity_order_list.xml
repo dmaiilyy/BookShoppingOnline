@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Oder History"
+                    android:text="My Order History"
                     android:textColor="@color/DARKlg2"
                     android:textSize="25dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -91,6 +91,34 @@
                     android:id="@+id/recyclerviewOrderItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/gotoshopping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/purchase" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/DARKlg"
+                    android:textSize="20dp"
+                    android:text="You haven't placed any order yet!"/>
+                <TextView
+                    android:id="@+id/toshopping"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/RED"
+                    android:textSize="25dp"
+                    android:padding="7dp"
+                    android:text="@string/intenttoshopping"/>
             </LinearLayout>
         </LinearLayout>
 

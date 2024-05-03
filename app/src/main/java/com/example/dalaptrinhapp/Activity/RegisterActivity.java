@@ -161,7 +161,6 @@ public class RegisterActivity extends AppCompatActivity {
                                         startActivity(intent_to_login);
                                     }
                                 });
-
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
 
@@ -237,10 +236,9 @@ public class RegisterActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
     public boolean isValidPhoneNumber(String phoneNumber) {
-        String regex = "^0\\d{9}$";
+        String regex = "/(84|0[3|5|7|8|9])+([0-9]{8})\\b";
         return phoneNumber.matches(regex);
     }
 

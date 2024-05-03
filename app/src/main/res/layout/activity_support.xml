@@ -70,7 +70,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/suppoter" />
+                android:src="@drawable/supporter" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -78,15 +78,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingHorizontal="20dp"
-                android:fontFamily="monospace"
-                android:textSize="20dp"
+                android:textSize="25dp"
+                android:paddingVertical="7dp"
                 android:textColor="@color/RED"
                 android:text="Do you have some question for us?" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:fontFamily="monospace"
+                android:textSize="20dp"
                 android:paddingHorizontal="35dp"
                 android:text="Please left your information below!" />
 

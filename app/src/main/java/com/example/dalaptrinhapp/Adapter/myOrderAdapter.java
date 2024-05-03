@@ -28,10 +28,10 @@ public class myOrderAdapter extends RecyclerView.Adapter<myOrderAdapter.ViewHold
         this.orderlist = orderlist;
         this.context = context;
     }
-//    public void setFilterlist(ArrayList<ordermodel> filterlist){
-//        this.orderlist = filterlist;
-//        notifyDataSetChanged();
-//    }
+    public void setFilterlist(ArrayList<ordermodel> filterlist){
+        this.orderlist = filterlist;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override

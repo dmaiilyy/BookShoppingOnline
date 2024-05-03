@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class BookListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageView backicon,carticon;
     private SearchView searchview;
-    private TextView emptynotify;
+    private LinearLayout emptynotify;
     private AutoCompleteTextView autoCompletetxt;
     ArrayList<categorymodel> categorylist;
 
@@ -77,17 +78,17 @@ public class BookListActivity extends AppCompatActivity {
         //search view
         searchview = findViewById(R.id.searchview);
         searchview.clearFocus();
-//        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                filterList(newText);
-//                return true;
-//            }
-//        });
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         //category spinner
         autoCompletetxt = findViewById(R.id.autoCompletetxt);
@@ -109,12 +110,11 @@ public class BookListActivity extends AppCompatActivity {
                     }
                 }
                 if (filterlist.isEmpty()){
-                    //k co gi
                     myadapter.setFilterlist(filterlist);
-                    emptynotify.setText("No data found!");
+                    emptynotify.setVisibility(View.VISIBLE);
                 } else{
+                    emptynotify.setVisibility(View.GONE);
                     myadapter.setFilterlist(filterlist);
-                    emptynotify.setText("");
                 }
             }
         });
@@ -182,20 +182,22 @@ public class BookListActivity extends AppCompatActivity {
             }
         });
     }
-//    private void filterList(String text) {
-//        ArrayList<bookmodel> filterlist = new ArrayList<>();
-//        for (bookmodel item : bookmodelarraylist){
-//            if (item.getTitle().toLowerCase().startsWith(text.toLowerCase()) ||
-//                    item.getAuthor().toLowerCase().startsWith(text.toLowerCase())){
-//                filterlist.add(item);
-//            }
-//        }
-//        if (filterlist.isEmpty()){
-//            myadapter.setFilterlist(filterlist);
-//            emptynotify.setText("No data found!");
-//        } else{
-//            myadapter.setFilterlist(filterlist);
-//        }
-//    }
+
+    private void filterList(String text) {
+        ArrayList<bookmodel> filterlist = new ArrayList<>();
+        for (bookmodel item : bookmodelarraylist){
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase()) ||
+                    item.getAuthor().toLowerCase().contains(text.toLowerCase())){
+                filterlist.add(item);
+            }
+        }
+        if (filterlist.isEmpty()){
+            myadapter.setFilterlist(filterlist);
+            emptynotify.setVisibility(View.VISIBLE);
+        } else{
+            emptynotify.setVisibility(View.GONE);
+            myadapter.setFilterlist(filterlist);
+        }
+    }
 
 }

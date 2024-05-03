@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
             android:text="Book List"
+            android:textColor="@color/DARKlg"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,12 +101,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    <TextView
+    <LinearLayout
         android:id="@+id/emptynotify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25dp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/RED" />
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/emptydata"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="No data found!"
+            android:textColor="@color/RED" />
+    </LinearLayout>
+
     </LinearLayout>

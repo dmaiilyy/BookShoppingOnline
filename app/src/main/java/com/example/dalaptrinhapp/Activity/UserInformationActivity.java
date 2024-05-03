@@ -136,6 +136,12 @@ public class UserInformationActivity extends AppCompatActivity {
                     address.requestFocus();
                     return;
                 }
+//
+//                if (isValidAdd(caddress)) {
+//                    address.setError("Add");
+//                    address.requestFocus();
+//                    return;
+//                }
 
                 //viet api update userinfor
                 Call<apiresponse> call = myapi.updateUserInfor(user_id, cname, cphone,caddress);
@@ -186,12 +192,15 @@ public class UserInformationActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
     public static boolean isValidPhoneNumber(String phonenumber) {
-        String phoneRegex = "0\\d{9}";
-        Pattern pattern = Pattern.compile(phoneRegex);
-        Matcher matcher = pattern.matcher(phonenumber);
-        return matcher.matches();
+        String phoneRegex = "^(84|0[3|5|7|8|9])+([0-9]{8})";
+        return phonenumber.matches(phoneRegex);
     }
+
+//    public boolean isValidAdd(String txt) {
+//        String regex = "^[a-zA-Z ]+$";
+//        return txt.matches(regex);
+//    }
+
 }

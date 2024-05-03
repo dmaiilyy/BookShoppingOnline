@@ -13,7 +13,7 @@ public class ordermodel {
     private String user_add;
     @SerializedName("created_at")
     private String createdate;
-    @SerializedName("createdate")
+    @SerializedName("create_date")
     private String created;
 
 
