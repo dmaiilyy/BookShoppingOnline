@@ -84,12 +84,11 @@ public class OrderDetailActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<orderdetailDto>> call, Response<ArrayList<orderdetailDto>> response) {
                 if(response.isSuccessful()){
                     odlist =response.body();
-                    for (int i = 0; i < odlist.size(); i ++){
-                        myadapter = new myOrderItemAdapter(odlist, OrderDetailActivity.this);
-                        LinearLayoutManager layout = new LinearLayoutManager(OrderDetailActivity.this,RecyclerView.VERTICAL, false);
-                        recyclerviewOrderItem.setLayoutManager(layout);
-                        recyclerviewOrderItem.setAdapter(myadapter);
-                    }
+                    myadapter = new myOrderItemAdapter(odlist, OrderDetailActivity.this);
+                    LinearLayoutManager layout = new LinearLayoutManager(OrderDetailActivity.this,RecyclerView.VERTICAL, false);
+                    recyclerviewOrderItem.setLayoutManager(layout);
+                    recyclerviewOrderItem.setAdapter(myadapter);
+
                 } else {
                     Toast.makeText(OrderDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                 }
@@ -114,10 +113,11 @@ public class OrderDetailActivity extends AppCompatActivity {
                     address.setText("Address: " + omodel.getUser_add());
                     createdate.setText("Created at: " + omodel.getCreatedate());
                     totalquantity.setText(String.valueOf(omodel.getTotal_amount()));
-                    subtotal.setText("$ " + String.valueOf(omodel.getTotal_price()-5));
+                    subtotal.setText(String.format("$ %.2f", omodel.getTotal_price() -5 ));
                     Log.d("totalprice", String.valueOf(omodel.getTotal_price()));
                     Log.d("totalamount", String.valueOf(omodel.getTotal_amount()));
-                    totalprice.setText("$ " + String.valueOf(omodel.getTotal_price()));
+//                    totalprice.setText("$ " + String.valueOf(omodel.getTotal_price()));
+                    totalprice.setText(String.format("$ %.2f", omodel.getTotal_price()));
                 } else {
                     Toast.makeText(OrderDetailActivity.this, "NO RESPONSE", Toast.LENGTH_SHORT).show();
                 }

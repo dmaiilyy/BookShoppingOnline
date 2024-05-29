@@ -90,12 +90,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<bookmodel>> call, Response<ArrayList<bookmodel>> response) {
                 bookmodelarraylist = response.body();
-                for (int i =0; i < bookmodelarraylist.size(); i ++){
                     myhpadapter = new myBookHPAdapter(bookmodelarraylist, MainActivity.this);
                     LinearLayoutManager layout = new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL,false);
                     homepagerccv.setLayoutManager(layout);
                     homepagerccv.setAdapter(myhpadapter);
-                }
             }
 
             @Override

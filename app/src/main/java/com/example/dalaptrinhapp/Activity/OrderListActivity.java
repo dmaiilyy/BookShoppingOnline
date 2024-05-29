@@ -110,7 +110,6 @@ public class OrderListActivity extends AppCompatActivity {
                         gotoshopping = findViewById(R.id.gotoshopping);
                         gotoshopping.setVisibility(View.VISIBLE);
                         recyclerviewOrderItem.setVisibility(View.GONE);
-
                     } else {
                         for (int i = 0; i < ordermodelarraylist.size(); i++) {
                             //call Adapter class
@@ -146,17 +145,7 @@ public class OrderListActivity extends AppCompatActivity {
                     filterlist.add(item);
                 }
             }
-//        } else if (isDate(text)){
-//            Log.d("stext", text);
-//            //tim kiem theo ngay-thang-nam
-//            for (ordermodel item : ordermodelarraylist) {
-//
-//                if (item.getCreated().equals(text)){
-////                    filterlist.add(item);
-//
-//                    Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
-//                }
-//            }
+
         } else {
             Toast.makeText(this, "data not found", Toast.LENGTH_SHORT).show();
         }

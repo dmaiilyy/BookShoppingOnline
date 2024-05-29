@@ -158,7 +158,7 @@ public class BookListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<bookmodel>> call, Throwable throwable) {
-                Toast.makeText(BookListActivity.this, "retrofit Error", Toast.LENGTH_SHORT);
+                Toast.makeText(BookListActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT);
             }
         });
 
@@ -179,6 +179,7 @@ public class BookListActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ArrayList<categorymodel>> call, Throwable throwable) {
+                Toast.makeText(BookListActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT);
             }
         });
     }
